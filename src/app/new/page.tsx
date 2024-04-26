@@ -1,7 +1,13 @@
 import Link from "next/link";
+import { prisma } from "@/db";
 
-async function createTodo(data: FormData){
-    "use server"
+async function createTodo(data: FormData) {
+  "use server";
+  const title = data.get("title")?.valueOf;
+  if(typeof title !== "string" || title.length === 0){
+    throw new Error("Invalid title")
+  }
+  await prisma.todo.create({data: {title, complete: false}})
 }
 
 export default function New() {
@@ -11,7 +17,7 @@ export default function New() {
         <h1 className="text-2xl">New</h1>
       </header>
       <div>
-        <form className="flex gap-2 flex-col" action="">
+        <form className="flex gap-2 flex-col" action={createTodo}>
           <input
             name="title"
             type="text"
