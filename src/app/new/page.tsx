@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/db";
+import {redirect} from "next/navigation";
 
 async function createTodo(data: FormData) {
   "use server";
@@ -8,6 +9,7 @@ async function createTodo(data: FormData) {
     throw new Error("Invalid title")
   }
   await prisma.todo.create({data: {title, complete: false}})
+  redirect("/")
 }
 
 export default function New() {
