@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+async function createTodo(data: FormData){
+    "use server"
+}
+
 export default function New() {
   return (
     <>
@@ -7,7 +11,7 @@ export default function New() {
         <h1 className="text-2xl">New</h1>
       </header>
       <div>
-        <form className="flex gap-2 flex-2" action="">
+        <form className="flex gap-2 flex-col" action="">
           <input
             name="title"
             type="text"
