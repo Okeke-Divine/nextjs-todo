@@ -40,3 +40,5 @@ gt.bat
 gp.bat
 
 .env
+
+dev.db*
