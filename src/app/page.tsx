@@ -1,5 +1,6 @@
 import { prisma } from "@/db";
 import Link from "next/link";
+import TodoItem from "@/app/components/TodoItem.tsx";
 
 async function getTodos(){
   return prisma.todo.findMany()
