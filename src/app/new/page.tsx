@@ -11,7 +11,9 @@ async function createTodo(data: FormData) {
         throw new Error('Invalid title');
     }
 
-  console.log(title);
+    await prisma.todo.create({data: {title, complete: false}});
+    redirect("/");
+
 }
 
 export default function New() {
