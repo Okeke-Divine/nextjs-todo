@@ -1,26 +1,35 @@
-"use client";
+// TodoItem.js
+
+"use client"; // Ensures this code only runs on the client-side
 
 type TodoItemProps = {
   id: string;
   title: string;
   complete: boolean;
   toggleTodo: (id: string, complete: boolean) => void;
+  deleteTodo: (id: string) => void;
 };
 
-export default function TodoItem({
-  id,
-  title,
-  complete,
-  toggleTodo,
-}: TodoItemProps) {
+function TodoItem({ id, title, complete, toggleTodo, deleteTodo }: TodoItemProps) {
+
+  const handleDelete = async (id: string) => {
+    const listItem = document.getElementById(id);
+    if (listItem) {
+      listItem.style.display = 'none';
+    }
+    deleteTodo(id);
+  };
+
   return (
     <>
-      <li className="flex gap-1 items-center">
+      <li id={id} className={`flex gap-1 items-center`}>
+        <div className="cursor-pointer text-red-200" onClick={() => handleDelete(id)}>
+          [x]
+        </div>
         <input
           id={id}
           type="checkbox"
           className="cursor-pointer peer"
-        //   value={complete}
           defaultChecked={complete}
           onChange={(e) => toggleTodo(id, e.target.checked)}
         />
@@ -31,3 +40,5 @@ export default function TodoItem({
     </>
   );
 }
+
+export default TodoItem;
