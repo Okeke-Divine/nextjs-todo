@@ -42,3 +42,4 @@ gp.bat
 .env
 
 dev.db*
+migrations/
