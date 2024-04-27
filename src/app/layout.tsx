@@ -32,8 +32,7 @@ export default function RootLayout({
         </div>
         {/* children */}
         <div>{children}</div>
-
-        <div className="py-2 text-center">
+        <div className="py-10 text-center">
           You can find the source code{" "}
           <a
             href="https://github.com/Okeke-Divine/nextjs-todo"
