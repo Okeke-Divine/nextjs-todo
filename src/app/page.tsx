@@ -3,7 +3,7 @@ import Link from "next/link";
 import TodoItem from "@/app/components/TodoItem.tsx";
 
 async function getTodos(){
-  return prisma.todo.findMany()
+  return prisma.todo.findMany();
 }
 
 async function toggleTodo(id:string, complete:boolean){
