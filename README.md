@@ -4,11 +4,12 @@
 
 ## List, Create and Delete
 
+## This repo initially ran on mysql but i changed it to sqlite
+
 My portfolio - https://okekedivine.vercel.app/
 
 ### .env
 
 ```
-DATABASE_URL="mysql://UNAME:PSWD@HOSTNAME:PORT/db-name"
-SQLITE_URL="file:./DB-NAME.db"
+DATABASE_URL="file:./dev.db"
 ```
